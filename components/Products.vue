@@ -48,17 +48,17 @@
       >
       <p class="font-bold">Select an image to view</p>
       <button>
-        <img class="rounded-t-2xl" @click="showImage1 = !showImage1" :src="product.image1" alt="Placeholder image">
+        <img class="rounded-t-2xl h-auto" @click="showImage1 = !showImage1" :src="product.image1" alt="Placeholder image">
       </button>
   <section class="pt-8 px-4">
    <div class="flex flex-wrap -mx-4">
-     <div class="md:w-1/3 px-4 mb-8">
+     <div class="md:w-1/3 px-4 mb-8 h-auto">
         <button><img class="rounded-t-2xl" @click="showImage2 = !showImage2" :src="product.image2" alt="Placeholder image"></button>
      </div>
-     <div class="md:w-1/3 px-4 mb-8">
+     <div class="md:w-1/3 px-4 mb-8 h-auto">
          <button><img class="rounded-t-2xl" @click="showImage3 = !showImage3" :src="product.image3" alt="Placeholder image"></button>
      </div>
-     <div class="md:w-1/3 px-4 mb-8">
+     <div class="md:w-1/3 px-4 mb-8 h-auto">
          <button><img class="rounded-t-2xl" @click="showImage4 = !showImage4" :src="product.image4" alt="Placeholder image"></button>
      </div>
    </div>
