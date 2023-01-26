@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[url('/_nuxt/img/logo3.3783b7a.jpeg')] w-6/8 p-5 lg:p-16">
+  <div class="bghero w-6/8 p-5 lg:p-16">
     <div class="bg-[#FAC27B] px-5 w-2/5">
     <h1 class="text-brown px-5 text-6xl">
       Creative Mills
@@ -10,3 +10,8 @@
     </div>
   </div>
 </template>
+<style lang="scss" scoped>
+  .bghero {
+    background: url('../../static/logo3.jpeg');
+  }
+  </style>
