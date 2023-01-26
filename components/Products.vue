@@ -1,33 +1,31 @@
 <template>
 
-
-  <div :class="[detail ? 'detail' : '']" class="rounded-2xl shadow-xl shadow-slate-300/60">
-  <div v-if="showImage1" class='bg-grey_light absolute pin-t pin-l h-screen w-full flex items-center justify-center'>
-    <div class='bg-white p-8 rounded w-1/2'>
-       <img  :src="product.image1" alt="Placeholder image">
+<div>
+  <div v-if="showImage1" class='bg-grey_light  h-[450] w-[450] flex items-center justify-center'>
+    <div class='bg-white p-8 rounded'>
+       <img  :src="product.image1" class=' object-fill' alt="Placeholder image">
         <button class="button mt-4 bg-blue text-white font-bold px-4 py-2 rounded-full" @click='showImage1 = !showImage1'>Close</button>
     </div>
   </div>
-  <div v-if="showImage2" class='bg-grey_light absolute pin-t pin-l h-screen w-full flex items-center justify-center'>
-    <div class='bg-white p-8 rounded w-1/2'>
+  <div v-if="showImage2" class='bg-grey_light h-[450] w-[450] flex items-center justify-center'>
+    <div class='bg-white p-8 rounded'>
        <img  :src="product.image2" alt="Placeholder image">
         <button class="bg-blue text-white font-bold px-4 py-2 rounded-full" @click='showImage2 = !showImage2'>Close</button>
     </div>
   </div>
-  <div v-if="showImage3" class='bg-grey_light absolute pin-t pin-l h-screen w-full flex items-center justify-center'>
-    <div class='bg-white p-8 rounded w-1/2'>
+  <div v-if="showImage3" class='bg-grey_light h-[450] w-[450] flex items-center justify-center'>
+    <div class='bg-white p-8 rounded'>
        <img  :src="product.image3" alt="Placeholder image">
         <button class="bg-blue text-white font-bold px-4 py-2 rounded-full" @click='showImage3 = !showImage3'>Close</button>
     </div>
   </div>
-
-  <div v-if="showImage4" class='bg-grey_light absolute pin-t pin-l h-screen w-full flex items-center justify-center'>
-    <div class='bg-white p-8 rounded w-1/2'>
+  <div v-if="showImage4" class='bg-grey_light h-[450] w-[450] flex items-center justify-center'>
+    <div class='bg-white p-8 rounded'>
        <img  :src="product.image4" alt="Placeholder image">
         <button class="bg-blue text-white font-bold px-4 py-2 rounded-full" @click='showImage4 = !showImage4'>Close</button>
     </div>
-  </div>
-
+</div>
+<div :class="[detail ? 'detail' : '']" class="rounded-2xl shadow-xl shadow-slate-300/60">
     <div class="img-wrapper rounded-t-2xl">
       <nuxt-link
         :to="{
@@ -45,20 +43,20 @@
             image4: product.image4
           }
         }"
-      >
-      <p class="font-bold">Select an image to view</p>
+
+
       <button>
-        <img class="rounded-t-2xl h-auto" @click="showImage1 = !showImage1" :src="product.image1" alt="Placeholder image">
+      <img class="image justify-center rounded-t-xl" @click="showImage1 = !showImage1" :src="product.image1" alt="Placeholder image">
       </button>
   <section class="pt-8 px-4">
-   <div class="flex flex-wrap -mx-4">
-     <div class="md:w-1/3 px-4 mb-8 h-auto">
+   <div class="flex flex-wrap mx-4">
+     <div class="w-1/3 px-4 mb-8">
         <button><img class="rounded-t-2xl" @click="showImage2 = !showImage2" :src="product.image2" alt="Placeholder image"></button>
      </div>
-     <div class="md:w-1/3 px-4 mb-8 h-auto">
+     <div class="w-1/3 px-4 mb-8">
          <button><img class="rounded-t-2xl" @click="showImage3 = !showImage3" :src="product.image3" alt="Placeholder image"></button>
      </div>
-     <div class="md:w-1/3 px-4 mb-8 h-auto">
+     <div class="w-1/3 px-4 mb-8">
          <button><img class="rounded-t-2xl" @click="showImage4 = !showImage4" :src="product.image4" alt="Placeholder image"></button>
      </div>
    </div>
@@ -88,6 +86,7 @@
               }"
             >
             <span :class="[detail ? 'text-3xl' : 'text-lg']">{{ product.title }}</span>
+            <button class="[detail] rounded-md bg-blue">more info</button>
           </nuxt-link>
         </div>
       </div>
@@ -188,6 +187,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ .image {
+    height:200px;
+    margin: 5px
+ }
   .detail {
     @apply flex;
     @apply flex-col;

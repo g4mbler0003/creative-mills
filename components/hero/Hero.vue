@@ -1,10 +1,10 @@
 <template>
   <div class="bghero w-6/8 p-5 lg:p-16">
-    <div class="bgherocolor px-5 xl:w-2/5 sm:w-150 md:w-200 ">
-    <h1 class="text-brown px-5 sm:text-xl md:text-xl text-6xl">
+    <div class="bgherocolor h-[160px] w-[245px] px-5 xl:w-2/5 md:w-3/5">
+    <h1 class="text-brown px-5 sm:text-md text-5xl">
       Creative Mills
     </h1>
-    <h2 class="text-brown sm:text-xl md:text-xl text-6xlxl xl:text-2xl">
+    <h2 class="text-brown sm:text-sm  lg:text-2xl">
       insert piffy statement here
     </h2>
     </div>
