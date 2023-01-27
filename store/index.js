@@ -2,17 +2,17 @@ export const state = () => ({
   products: [
     {
       id: 1,
-      title: 'Product 1',
+      title: 'Product 10',
       description: 'blah blah',
       price: 50,
       isAddedToCart: false,
       isAddedBtn: false,
       isFavourite: false,
       quantity: 1,
-      image1: "https://bulma.io/images/placeholders/1280x960.png",
-      image2: "https://bulma.io/images/placeholders/1280x960.png",
-      image3: "https://bulma.io/images/placeholders/1280x960.png",
-      image4: "https://bulma.io/images/placeholders/1280x960.png"
+      image1: "product-1-2-final.png",
+      image2: "product-1-1-final.png",
+      image3: "product-1-3-final.png",
+      image4: "product-1-4-final.png",
     },
     {
       id: 2,
@@ -23,10 +23,10 @@ export const state = () => ({
       isAddedBtn: false,
       isFavourite: false,
       quantity: 1,
-      image1: "https://bulma.io/images/placeholders/1280x960.png",
-      image2: "https://bulma.io/images/placeholders/1280x960.png",
-      image3: "https://bulma.io/images/placeholders/1280x960.png",
-      image4: "https://bulma.io/images/placeholders/1280x960.png"
+      image1: "product-2-2-final.png",
+      image2: "product-2-1-final.png",
+      image3: "product-2-3-final.png",
+      image4: "product-2-4-final.png",
 
     },
     {
@@ -38,10 +38,10 @@ export const state = () => ({
       isAddedBtn: false,
       isFavourite: false,
       quantity: 1,
-      image1: "https://bulma.io/images/placeholders/1280x960.png",
-      image2: "https://bulma.io/images/placeholders/1280x960.png",
-      image3: "https://bulma.io/images/placeholders/1280x960.png",
-      image4: "https://bulma.io/images/placeholders/1280x960.png"
+      image1: "product-3-2-final.png",
+      image2: "product-3-1-final.png",
+      image3: "product-3-3-final.png",
+      image4: "product-3-4-final.png",
 
     },
     {
@@ -53,10 +53,10 @@ export const state = () => ({
       isAddedBtn: false,
       isFavourite: false,
       quantity: 1,
-      image1: "https://bulma.io/images/placeholders/1280x960.png",
-      image2: "https://bulma.io/images/placeholders/1280x960.png",
-      image3: "https://bulma.io/images/placeholders/1280x960.png",
-      image4: "https://bulma.io/images/placeholders/1280x960.png"
+      image1: "product-4-2-final.png",
+      image2: "product-4-1-final.png",
+      image3: "product-4-3-final.png",
+      image4: "product-4-2-final.png",
 
     },
     {
