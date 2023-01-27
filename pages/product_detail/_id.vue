@@ -1,6 +1,93 @@
 <template>
-  <Product :detail="true" :product="product"/>
+
+<div>
+
+<div class="text-wrapper p-4">
+  <div class="flex items-center justify-between mb-3">
+    <div class="media-content">
+
+        <span class="text-3xl text-lg">{{ product.title }}</span>
+
+
+    </div>
+  </div>
+  <div class="w-[225]">
+    <p class="detail text-sm">{{ product.description }}</p>
+
+
+    <div class="flex justify-between">
+      <div class="flex items-right">
+      </div>
+      <p class="text-3xl font-medium">
+        <strong>&dollar; {{ product.price }}</strong>
+      </p>
+    </div>
+
+      </select>
+      <button class="rounded-xl p-3 bg-blue text-white" v-if="!product.isAddedToCart" @click="addToCart(product.id)">{{ addToCartLabel }}</button>
+      <button class="bg-red rounded-xl p-3" v-if="product.isAddedToCart" @click="removeFromCart(product.id, false)">{{ removeFromCartLabel }}</button>
+    </div>
+  </div>
+
+  <div v-if="showImage1" class='bg-grey_light  h-[450] w-[450] flex items-center justify-center'>
+    <div class='bg-white p-8 rounded'>
+       <img  :src="product.image1" class=' object-fill' alt="Placeholder image">
+        <button class="button mt-4 bg-blue text-white font-bold px-4 py-2 rounded-full" @click='showImage1 = !showImage1'>Close</button>
+    </div>
+  </div>
+  <div v-if="showImage2" class='bg-grey_light h-[450] w-[450] flex items-center justify-center'>
+    <div class='bg-white p-8 rounded'>
+       <img  :src="product.image2" alt="Placeholder image">
+        <button class="bg-blue text-white font-bold px-4 py-2 rounded-full" @click='showImage2 = !showImage2'>Close</button>
+    </div>
+  </div>
+  <div v-if="showImage3" class='bg-grey_light h-[450] w-[450] flex items-center justify-center'>
+    <div class='bg-white p-8 rounded'>
+       <img  :src="product.image3" alt="Placeholder image">
+        <button class="bg-blue text-white font-bold px-4 py-2 rounded-full" @click='showImage3 = !showImage3'>Close</button>
+    </div>
+  </div>
+  <div v-if="showImage4" class='bg-grey_light h-[450] w-[450] flex items-center justify-center'>
+    <div class='bg-white p-8 rounded'>
+       <img  :src="product.image4" alt="Placeholder image">
+        <button class="bg-blue text-white font-bold px-4 py-2 rounded-full" @click='showImage4 = !showImage4'>Close</button>
+    </div>
+</div>
+
+<div class="rounded-2xl shadow-xl shadow-slate-300/60">
+    <div class="img-wrapper rounded-t-2xl">
+
+      <button>
+      <img class="image justify-center rounded-t-xl" @click="showImage1 = !showImage1" :src="product.image1" alt="Placeholder image">
+      </button>
+  <section class="pt-8 px-4">
+   <div class="flex flex-wrap mx-4">
+     <div class="w-1/3 px-4 mb-8">
+        <button><img class="rounded-t-2xl" @click="showImage2 = !showImage2" :src="product.image2" alt="Placeholder image"></button>
+     </div>
+     <div class="w-1/3 px-4 mb-8">
+         <button><img class="rounded-t-2xl" @click="showImage3 = !showImage3" :src="product.image3" alt="Placeholder image"></button>
+     </div>
+     <div class="w-1/3 px-4 mb-8">
+         <button><img class="rounded-t-2xl" @click="showImage4 = !showImage4" :src="product.image4" alt="Placeholder image"></button>
+     </div>
+   </div>
+  </section>
+  <div class="w-250">
+        <p class="detail text-sm">{{ product.moredetails }}</p>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+</div>
 </template>
+
+
+
 
 <script>
 import Product from '@/components/Products.vue'
@@ -19,7 +106,13 @@ export default {
     return {
       product: {},
       selected: 1,
-      quantityArray: []
+      quantityArray: [],
+      showImage1: false,
+      showImage2: false,
+      showImage3: false,
+      showImage4: false,
+      addToCartLabel: 'Add to cart',
+      removeFromCartLabel: 'Remove from cart',
     };
   },
 
@@ -78,3 +171,30 @@ export default {
 };
 </script>
 
+<style lang="scss" scoped>
+ .image {
+    height:200px;
+    margin: 5px
+ }
+  .detail {
+    @apply flex;
+    @apply flex-col;
+    @apply lg:flex-row;
+    @apply m-3;
+    @apply shadow-2xl;
+
+    .img-wrapper {
+      flex: 1;
+
+      img {
+        @apply lg:rounded-none;
+        @apply lg:rounded-tl-2xl;
+        @apply lg:rounded-bl-2xl;
+      }
+    }
+
+    .text-wrapper {
+      flex: 2;
+    }
+  }
+</style>

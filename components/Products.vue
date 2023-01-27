@@ -91,7 +91,7 @@
         </div>
       </div>
       <div class="content is-clearfix">
-        <p :class="[detail ? 'text-2xl' : 'text-base']">{{ product.description }}</p>
+        <p :class="[detail ? 'text-2xl' : 'text-base']"></p>
         <div class="flex justify-between">
           <div class="flex items-right">
           </div>

@@ -3,7 +3,9 @@ export const state = () => ({
     {
       id: 1,
       title: 'Product 10',
-      description: 'blah blah',
+      info: 'this is the info prop',
+      description: 'This premium cutting board was expertly crafted from a combination of South African Canarywood and domestic Ambrosia Maple.  The rich warm color of the Canarywood and grain pattern of the Ambrosia Maple compliment each other and make it truely unique.  This cutting board is not only beautiful but also highly durable, able to withstand frequent use without showing signs of wear. It 12"x18" and provides plenty of surface area for slicing, dicing, or using to serve your favorite dish.',
+      moredetails: 'Every board we make is one of a kind, handcrafted with only FDA/NSF Certified Food Safe products and seasoned with a mineral oil beeswax compound that make not only look great but a breeze clean.  Our exceptional craftsmanship and stunning designs, are sure to make a great addition to any kitchen.',
       price: 50,
       isAddedToCart: false,
       isAddedBtn: false,
