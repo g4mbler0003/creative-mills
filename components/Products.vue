@@ -85,8 +85,8 @@
                 }
               }"
             >
-            <span :class="[detail ? 'text-3xl' : 'text-lg']">{{ product.title }}</span>
-            <button class="[detail] rounded-md bg-blue">more info</button>
+            <p class="text-xl font-bold">{{ product.title }}</p>
+            <a class="[detail] text-red rounded-md bg-blue">Click here for more info...</a>
           </nuxt-link>
         </div>
       </div>

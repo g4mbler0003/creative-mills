@@ -6,32 +6,28 @@
   <div class="flex items-center justify-between mb-3">
     <div class="media-content">
 
-        <span class="text-3xl text-lg">{{ product.title }}</span>
+        <span class="text-2xl lg:text-4xl">{{ product.title }}</span>
 
 
     </div>
   </div>
-  <div class="w-[225]">
-    <p class="detail text-sm">{{ product.description }}</p>
+  <div class=" w-9/10 lg:w-2/3">
+    <p class=" text-sm lg:p-3 lg:text-2xl">{{ product.description }}</p>
+
+</div>
+    <div class="flex  right-50 p-2 relative w-5/5 lg:w-1/2">
+
+      <p class=" m-9 left-40 p-1 text-3xl">&dollar; {{ product.price }}
 
 
-    <div class="flex justify-between">
-      <div class="flex items-right">
+</p>
+      <button class="right-5 px-2 rounded-full bg-blue text-white" v-if="!product.isAddedToCart" @click="addToCart(product.id)">{{ addToCartLabel }}</button>
+      <button class="right-5 px-2 rounded-full bg-red text-white" v-if="product.isAddedToCart" @click="removeFromCart(product.id, false)">{{ removeFromCartLabel }}</button>
       </div>
-      <p class="text-3xl font-medium">
-        <strong>&dollar; {{ product.price }}</strong>
-      </p>
-    </div>
-
-      </select>
-      <button class="rounded-xl p-3 bg-blue text-white" v-if="!product.isAddedToCart" @click="addToCart(product.id)">{{ addToCartLabel }}</button>
-      <button class="bg-red rounded-xl p-3" v-if="product.isAddedToCart" @click="removeFromCart(product.id, false)">{{ removeFromCartLabel }}</button>
-    </div>
   </div>
-
-  <div v-if="showImage1" class='bg-grey_light  h-[450] w-[450] flex items-center justify-center'>
+  <div v-if="showImage1" class='bg-grey_light w-5/5 flex items-center justify-center'>
     <div class='bg-white p-8 rounded'>
-       <img  :src="product.image1" class=' object-fill' alt="Placeholder image">
+       <img  :src="product.image1" class='object-fill  h-[450] w-[450]' alt="Placeholder image">
         <button class="button mt-4 bg-blue text-white font-bold px-4 py-2 rounded-full" @click='showImage1 = !showImage1'>Close</button>
     </div>
   </div>
@@ -172,6 +168,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
  .image {
     height:200px;
     margin: 5px
