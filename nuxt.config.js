@@ -113,6 +113,10 @@ module.exports = {
         href:
           "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
       },
+       {
+         rel: "stylesheet",
+         href: "https://fonts.googleapis.com/css?family=sail:300,400"
+       },
       {
         rel: "stylesheet",
         integrity:
