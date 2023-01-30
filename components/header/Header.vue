@@ -1,13 +1,22 @@
 <template>
   <nav
-    class="flex justify-between sticky top-0 bg-white z-10 shadow-md p-10"
+    class="flex justify-between sticky top-0 title z-10 shadow-md p-4"
     role="navigation"
     aria-label="main navigation"
   >
-    <nuxt-link :to="{ name: 'index' }" class="navbar-item">
-      <h1 class="title w-40 h-12"></h1>
-    </nuxt-link>
+  <div class="lg:w-750">
 
+    <nuxt-link :to="{ name: 'index' }" class="navbar-item">
+    <h1 class="herofont text-brown text-[50px]  lg:text-[100px]">
+      Creative Mills
+    </h1>
+    </nuxt-link>
+    <div>
+        <h2 class="text-brown text-md  herofont lg:text-2xl lg:h-25">
+          insert piffy statement here
+        </h2>
+      </div>
+</div>
     <div class="flex items-center">
       <div class="mx-2 text-base">
         <div class="cursor-pointer" @click="showCheckoutModal">
@@ -93,9 +102,12 @@
 
 <style lang="scss" scoped>
   .title {
-    background: url('../../static/logo3.jpeg') no-repeat;
-    background-position: 50% 50%;
-    background-size: 215px;
+    background: url('../../static/hero-background2.png') no-repeat;
+    .herofont {
+    font-family: Sail;
+
+    }
+
   }
   .dropdown {
     @apply absolute;

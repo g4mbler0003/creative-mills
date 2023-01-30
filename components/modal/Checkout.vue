@@ -24,7 +24,11 @@
 				</div>
 			</section>
 			<div class="m-4">
-				<button v-show="products.length > 0 && !isCheckoutSection" class="rounded-xl p-3 bg-blue text-white w-full" @click="onNextBtn">{{ buyLabel }}</button>
+				<button v-show="products.length > 0 && !isCheckoutSection" class="rounded-xl p-3 bg-blue text-white w-full"  role="link"
+    v-for="product in products" :key="product.id"  
+		  @click="redirectToLink(product.stripelink)">
+			{{ buyLabel }}
+			</button>
 				<button v-if="isCheckoutSection" class="rounded-xl p-3 bg-blue text-white w-full" @click="closeModal(true)">{{ closeLabel }}</button>
 			</div>
 		</div>
@@ -36,17 +40,20 @@ export default {
 	name: 'checkout',
 
 	data () {
+
 		return {
 			modalTitle: 'Checkout',
 			removeLabel: 'Remove from cart',
 			cartEmptyLabel: 'Your cart is empty',
 			closeLabel: 'Close',
-			isCheckoutSection: false
+			isCheckoutSection: false,
+
 		}
 	},
 
+
 	computed: {
-			products () {
+	products () {
 				return this.$store.getters.productsAdded;
 			},
 			openModal () {
@@ -80,7 +87,7 @@ export default {
 				} else {
 					productLabel = 'product';
 				}
-				return `Buy ${totalProducts} ${productLabel} at ${finalPrice}€`;
+				return `Buy ${totalProducts} ${productLabel} at ${finalPrice} + shipping`;
 		},
 		isUserLoggedIn () {
 			return this.$store.getters.isUserLoggedIn;
@@ -88,6 +95,11 @@ export default {
 	},
 
 	methods: {
+
+	redirectToLink(link) {
+    window.location = link;
+  },
+
 		closeModal (reloadPage) {
 			this.$store.commit('showCheckoutModal', false);
 

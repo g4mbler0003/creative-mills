@@ -12,6 +12,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
+         
     title: pkg.description,
     meta: [
       { charset: "utf-8" },
@@ -140,7 +141,8 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+ 
+
 
   /*
    ** Nuxt.js modules
@@ -166,6 +168,8 @@ module.exports = {
   },
 
   build: {
+     
+
     postcss: {
       plugins: {
         tailwindcss: path.resolve(__dirname, './tailwind.config.js'),

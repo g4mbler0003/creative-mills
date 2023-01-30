@@ -1,4 +1,5 @@
 <template>
+<div class="m-5 w-full">
 	<input
     class="input"
     type="search"
@@ -6,6 +7,7 @@
     :placeholder="placeholder"
     @keyup="search(value)"
   />
+	</div>
 </template>
 
 <script>
@@ -40,4 +42,3 @@ export default {
 	}
 }
 </script>
-
