@@ -1,16 +1,14 @@
 <template>
-  <div class="">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-
-      <div v-for="product in products" :key="product.id">
-        <Products :detail="false" :product="product" />
-
-      </div>
+    <div class="">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div v-for="product in products" :key="product.id">
+                <Products :detail="false" :product="product" />
+            </div>
+        </div>
+        <div class="text-center" v-if="products.length === 0">
+            <h2 class="text-2xl">{{ noProductLabel }}</h2>
+        </div>
     </div>
-    <div class="text-center" v-if="products.length === 0">
-      <h2 class="text-2xl">{{ noProductLabel }}</h2>
-    </div>
-  </div>
 </template>
 
 <script>

@@ -34,8 +34,6 @@
             id: product.id,
             title: product.title,
             price: product.price,
-            rating: product.ratings,
-            reviews: product.reviews,
             isAddedBtn: product.isAddedBtn,
             image1: product.image1,
             image2: product.image2,
@@ -75,8 +73,6 @@
                   id: product.id,
                   title: product.title,
                   price: product.price,
-                  rating: product.ratings,
-                  reviews: product.reviews,
                   isAddedBtn: product.isAddedBtn,
                   image1: product.image1,
                   image2: product.image2,
@@ -85,8 +81,7 @@
                 }
               }"
             >
-            <p class="text-xl font-bold">{{ product.title }}</p>
-            <a class="[detail] text-red rounded-md bg-blue">Click here for more info...</a>
+            <p class="text-xl font-bold">{{ product.title }}</p><button class=" bg-blue rounded-full text-white text-sm">more info...</button>
           </nuxt-link>
         </div>
       </div>
@@ -95,13 +90,13 @@
         <div class="flex justify-between">
           <div class="flex items-right">
           </div>
-          <p class="text-3xl font-medium">
-            <strong>&dollar; {{ product.price }}</strong>
+          <p class="text-2xl font-medium">
+            Price <strong>&dollar; {{ product.price }}</strong>
           </p>
         </div>
 
           </select>
-          <button class="rounded-xl p-3 bg-blue text-white" v-if="!product.isAddedToCart" @click="addToCart(product.id)">{{ addToCartLabel }}</button>
+          <button class="rounded-xl p-3 m-3 bg-blue text-white" v-if="!product.isAddedToCart" @click="addToCart(product.id)">{{ addToCartLabel }}</button>
           <button class="bg-red rounded-xl p-3" v-if="product.isAddedToCart" @click="removeFromCart(product.id, false)">{{ removeFromCartLabel }}</button>
         </div>
       </div>
@@ -119,7 +114,6 @@ export default {
       addToCartLabel: 'Add to cart',
       viewDetailsLabel: 'Details',
       removeFromCartLabel: 'Remove from cart',
-      addToFavouriteLabel: 'Add to favourite',
       removeFromFavouriteLabel: 'Remove from favourite',
       selected: 1,
       quantityArray: [],
@@ -140,11 +134,6 @@ export default {
     }
   },
 
-  computed: {
-    isUserLogged () {
-      return this.$store.getters.isUserLoggedIn;
-    }
-  },
 
   methods: {
     addToCart (id) {
@@ -162,18 +151,6 @@ export default {
       }
       this.$store.commit('removeFromCart', id);
       this.$store.commit('setAddedBtn', data);
-    },
-    saveToFavorite (id) {
-      let isUserLogged = this.$store.state.userInfo.isLoggedIn;
-
-      if (isUserLogged) {
-        this.$store.commit('addToFavourite', id);
-      } else {
-        this.$store.commit('showLoginModal', true);
-      }
-    },
-    removeFromFavourite (id) {
-      this.$store.commit('removeFromFavourite', id);
     },
     onSelectQuantity (id) {
       let data = {

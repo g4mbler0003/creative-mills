@@ -1,34 +1,30 @@
 <template>
-  <nav
-    class="flex justify-between sticky top-0 title z-10 shadow-md p-4"
-    role="navigation"
-    aria-label="main navigation"
-  >
-  <div class="lg:w-750">
-
-    <nuxt-link :to="{ name: 'index' }" class="navbar-item">
-    <h1 class="herofont text-brown text-[50px]  lg:text-[100px]">
-      Creative Mills
-    </h1>
-    </nuxt-link>
-    <div>
-        <h2 class="text-brown text-md  herofont lg:text-2xl lg:h-25">
-          insert piffy statement here
-        </h2>
-      </div>
-</div>
-    <div class="flex items-center">
-      <div class="mx-2 text-base">
-        <div class="cursor-pointer" @click="showCheckoutModal">
-          <span :class="[numProductsAdded > 0 ? 'p-2 bg-blue text-white rounded-md' : '']">{{ numProductsAdded }}</span>
-          <span class="icon">
-            <i class="fa fa-shopping-cart fa-2x"></i>
-          </span>
+    <nav class="flex justify-between sticky top-0 title z-10 shadow-md p-4" role="navigation" aria-label="main navigation">
+        <div class="lg:w-750">
+            <nuxt-link :to="{ name: 'index' }" class="navbar-item">
+                <h1 class="herofont text-white text-[50px] lg:text-[100px]">
+                    Creative Mills
+                </h1>
+            </nuxt-link>
+            <div class="mb-4">
+                <h2 class="ml-8 text-white font-extrabold text-md herofont lg:text-2xl lg:h-25">
+                    Dream it. Plan it. Build it.
+                </h2>
+            </div>
         </div>
-      </div>
-   </div>
-  </nav>
+        <div class="flex items-center">
+            <div class="mx-2 text-base">
+                <div class="cursor-pointer" @click="showCheckoutModal">
+                    <span :class="[numProductsAdded > 0 ? 'p-2 bg-blue text-white rounded-md' : '']">{{ numProductsAdded }}</span>
+                    <span class="icon">
+                        <i class="fa fa-shopping-cart fa-2x"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
 </template>
+
 
 <script>
   export default {
@@ -37,67 +33,21 @@
     data () {
       return {
         isCheckoutActive: false,
-        showDropdown: false,
-        logoutLabel: 'Log out',
-			  loginLabel: 'Log in',
-			  signupLabel: 'Sign up',
-        wishlistLabel: 'Wishlist',
       }
     },
 
     computed: {
       numProductsAdded () {
         return this.$store.getters.productsAdded.length;
-      },
-      isUserLoggedIn () {
-        return this.$store.getters.isUserLoggedIn;
-      },
-      getUserName () {
-        let name = this.$store.getters.getUserName;
-
-        if (name === '') {
-          return 'user';
-        } else {
-          return name;
-        }
       }
     },
 
-    mounted() {
-      window.addEventListener("blur", this.closeDropdown, true);
-    },
-    destroyed() {
-      window.removeEventListener("blur", this.closeDropdown);
-    },
-
     methods: {
-      closeDropdown() {
-        setTimeout(() => {
-          this.showDropdown = false;
-        }, 100);
-      },
       showCheckoutModal () {
         this.$store.commit('showCheckoutModal', true);
-      },
-      showLoginModal () {
-        this.$store.commit('showLoginModal', true);
-      },
-      showSignupModal () {
-        this.$store.commit('showSignupModal', true);
-      },
-      onShowDropdown () {
-        this.showDropdown = !this.showDropdown
-      },
-      logout () {
-        this.$store.commit('isUserLoggedIn', false);
-        this.$store.commit('isUserSignedUp', false);
-        this.$store.commit('removeProductsFromFavourite');
-
-        // redirect to homepage
-        this.$router.push({ name: 'index' });
-      },
+      }
     }
-  };
+}
 </script>
 
 <style lang="scss" scoped>

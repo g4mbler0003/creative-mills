@@ -1,38 +1,36 @@
 <template>
-	<div :class="[ openModal ? 'fixed flex' : 'hidden', 'modal' ]">
-		<div class="modal-background"></div>
-		<div class="modal-wrapper">
-			<div class="bg-grey_light flex items-center justify-between rounded-t-2xl p-5">
-				<p class="text-xl">{{ modalTitle }}</p>
-				<button class="delete" aria-label="close" @click="closeModal(false)">X</button>
-			</div>
-			<section class="p-5 rounded-b-2xl">
-				<div v-if="!isCheckoutSection">
-					<div class="box" v-for="product in products" :key="product.id">
-						<div>
-              <p>{{ product.title }}  {{ product.quantity > 0 ?  ` - Quantity: ${product.quantity}` : ''}}</p>
-						  <p>{{ product.price }} &dollar;</p>
+    <div :class="[ openModal ? 'fixed flex' : 'hidden', 'modal' ]">
+        <div class="modal-background"></div>
+        <div class="modal-wrapper">
+            <div class="bg-grey_light flex items-center justify-between rounded-t-2xl p-5">
+                <p class="text-xl">{{ modalTitle }}</p>
+                <button class="delete" aria-label="close" @click="closeModal(false)">X</button>
             </div>
-            <button class="rounded-xl p-3 text-white bg-blue" @click="removeFromCart(product.id)">{{ removeLabel }}</button>
-					</div>
-					<div v-if="products.length === 0">
-						<p>{{ cartEmptyLabel }}</p>
-					</div>
-				</div>
-				<div v-if="isCheckoutSection">
-					<p>You bought it :-)</p>
-				</div>
-			</section>
-			<div class="m-4">
-				<button v-show="products.length > 0 && !isCheckoutSection" class="rounded-xl p-3 bg-blue text-white w-full"  role="link"
-    v-for="product in products" :key="product.id"  
-		  @click="redirectToLink(product.stripelink)">
-			{{ buyLabel }}
-			</button>
-				<button v-if="isCheckoutSection" class="rounded-xl p-3 bg-blue text-white w-full" @click="closeModal(true)">{{ closeLabel }}</button>
-			</div>
-		</div>
-	</div>
+            <section class="p-5 rounded-b-2xl">
+                <div v-if="!isCheckoutSection">
+                    <div class="box" v-for="product in products" :key="product.id">
+                        <div>
+                            <p>{{ product.title }} {{ product.quantity > 0 ? ` - Quantity: ${product.quantity}` : ''}}</p>
+                            <p>{{ product.price }} &dollar;</p>
+                        </div>
+                        <button class="rounded-xl p-3 text-white bg-blue" @click="removeFromCart(product.id)">{{ removeLabel }}</button>
+                    </div>
+                    <div v-if="products.length === 0">
+                        <p>{{ cartEmptyLabel }}</p>
+                    </div>
+                </div>
+                <div v-if="isCheckoutSection">
+                    <p>You bought it :-)</p>
+                </div>
+            </section>
+            <div class="m-4">
+                <button v-show="products.length > 0 && !isCheckoutSection" class="rounded-xl p-3 bg-blue text-white w-full" role="link" v-for="product in products" :key="product.id" @click="redirectToLink(product.stripelink)">
+                    {{ buyLabel }}
+                </button>
+                <button v-if="isCheckoutSection" class="rounded-xl p-3 bg-blue text-white w-full" @click="closeModal(true)">{{ closeLabel }}</button>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -52,7 +50,7 @@ export default {
 	},
 
 
-	computed: {
+computed: {
 	products () {
 				return this.$store.getters.productsAdded;
 			},
@@ -88,17 +86,16 @@ export default {
 					productLabel = 'product';
 				}
 				return `Buy ${totalProducts} ${productLabel} at ${finalPrice} + shipping`;
+				}
 		},
-		isUserLoggedIn () {
-			return this.$store.getters.isUserLoggedIn;
-		}
-	},
+
+
 
 	methods: {
 
 	redirectToLink(link) {
     window.location = link;
-  },
+    },
 
 		closeModal (reloadPage) {
 			this.$store.commit('showCheckoutModal', false);
@@ -115,17 +112,6 @@ export default {
 			this.$store.commit('removeFromCart', id);
 			this.$store.commit('setAddedBtn', data);
 		},
-		onNextBtn () {
-			if (this.isUserLoggedIn) {
-				this.isCheckoutSection = true;
-			} else {
-				this.$store.commit('showCheckoutModal', false);
-				this.$store.commit('showLoginModal', true);
-			}
-		},
-		onPrevBtn () {
-			this.isCheckoutSection = false;
-		}
 	}
 }
 </script>

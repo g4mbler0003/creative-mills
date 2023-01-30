@@ -3,8 +3,6 @@
     <VmHeader />
     <main>
       <nuxt/>
-      <VmLoginModal />
-      <VmSignupModal />
       <VmCheckoutModal />
     </main>
     <VmFooter />
@@ -14,16 +12,12 @@
 <script>
 import VmHeader from '@/components/header/Header';
 import VmFooter from '@/components/footer/Footer';
-import VmLoginModal from '@/components/modal/Login';
-import VmSignupModal from '@/components/modal/Signup';
 import VmCheckoutModal from '@/components/modal/Checkout';
 
 export default {
   components: {
     VmHeader,
     VmFooter,
-    VmLoginModal,
-    VmSignupModal,
     VmCheckoutModal
   }
 }

@@ -17,7 +17,7 @@
 </div>
     <div class="flex  right-50 p-2 relative w-5/5 lg:w-1/2">
 
-      <p class=" m-9 left-40 p-1 text-3xl">&dollar; {{ product.price }}
+      <p class=" m-9 left-40 p-1 text-3xl"> Price &dollar; {{ product.price }}
 
 
 </p>
