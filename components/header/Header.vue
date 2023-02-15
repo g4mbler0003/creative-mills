@@ -2,12 +2,12 @@
     <nav class="flex justify-between sticky top-0 title z-10 shadow-md p-4" role="navigation" aria-label="main navigation">
         <div class="lg:w-750">
             <nuxt-link :to="{ name: 'index' }" class="navbar-item">
-                <h1 class="herofont text-white text-[50px] lg:text-[100px]">
+                <h1 class="herofont text-white text-[45px] md:text-[90px] lg:text-[100px]">
                     Creative Mills
                 </h1>
             </nuxt-link>
             <div class="mb-4">
-                <h2 class="ml-8 text-white font-extrabold text-md herofont lg:text-2xl lg:h-25">
+                <h2 class="ml-8 text-white font-extrabold text-md herofont md:text-[30px] lg:text-2xl lg:h-25">
                     Dream it. Plan it. Build it.
                 </h2>
             </div>
@@ -53,7 +53,7 @@
 <style lang="scss" scoped>
   .title {
     background: url('../../static/hero-background2.png') no-repeat;
-    .herofont {
+  .herofont {
     font-family: Sail;
 
     }

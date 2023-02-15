@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class=" w-9/10 lg:w-2/3">
-    <p class=" text-sm lg:p-3 lg:text-2xl">{{ product.description }}</p>
+    <p class=" text-md lg:p-3 lg:text-2xl">{{ product.description }}</p>
 
 </div>
     <div class="flex  right-50 p-2 relative w-5/5 lg:w-1/2">

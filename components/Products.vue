@@ -33,6 +33,7 @@
           params: {
             id: product.id,
             title: product.title,
+            dimensions: product.dimensions,
             price: product.price,
             isAddedBtn: product.isAddedBtn,
             image1: product.image1,
@@ -43,22 +44,7 @@
         }"
 
 
-      <button>
-      <img class="image justify-center rounded-t-xl" @click="showImage1 = !showImage1" :src="product.image1" alt="Placeholder image">
-      </button>
-  <section class="pt-8 px-4">
-   <div class="flex flex-wrap mx-4">
-     <div class="w-1/3 px-4 mb-8">
-        <button><img class="rounded-t-2xl" @click="showImage2 = !showImage2" :src="product.image2" alt="Placeholder image"></button>
-     </div>
-     <div class="w-1/3 px-4 mb-8">
-         <button><img class="rounded-t-2xl" @click="showImage3 = !showImage3" :src="product.image3" alt="Placeholder image"></button>
-     </div>
-     <div class="w-1/3 px-4 mb-8">
-         <button><img class="rounded-t-2xl" @click="showImage4 = !showImage4" :src="product.image4" alt="Placeholder image"></button>
-     </div>
-   </div>
-  </section>
+
  </nuxt-link>
 </div>
 
@@ -72,6 +58,7 @@
                 params: {
                   id: product.id,
                   title: product.title,
+                  dimensions: product.dimensions,
                   price: product.price,
                   isAddedBtn: product.isAddedBtn,
                   image1: product.image1,
@@ -81,8 +68,29 @@
                 }
               }"
             >
-            <p class="text-xl font-bold">{{ product.title }}</p><button class=" bg-blue rounded-full text-white text-sm">more info...</button>
-          </nuxt-link>
+            <p class="text-xl font-bold">{{ product.title }}</p>
+
+              <p class="text-md ml-4 mt-2 mb-4">{{ product.dimensions }}
+                 <button class=" italic bg-blue rounded-full text-white text-sm px-2 py-1">more info...</button>
+              </p>
+              </nuxt-link>
+              <button>
+              <img class="image justify-center rounded-t-xl" @click="showImage1 = !showImage1" :src="product.image1" alt="Placeholder image">
+              </button>
+          <section class="pt-8 px-4">
+           <div class="flex flex-wrap mx-4">
+             <div class="w-1/3 px-4 mb-8">
+                <button><img class="rounded-t-2xl" @click="showImage2 = !showImage2" :src="product.image2" alt="Placeholder image"></button>
+             </div>
+             <div class="w-1/3 px-4 mb-8">
+                 <button><img class="rounded-t-2xl" @click="showImage3 = !showImage3" :src="product.image3" alt="Placeholder image"></button>
+             </div>
+             <div class="w-1/3 px-4 mb-8">
+                 <button><img class="rounded-t-2xl" @click="showImage4 = !showImage4" :src="product.image4" alt="Placeholder image"></button>
+             </div>
+           </div>
+          </section>
+
         </div>
       </div>
       <div class="content is-clearfix">
@@ -90,6 +98,7 @@
         <div class="flex justify-between">
           <div class="flex items-right">
           </div>
+
           <p class="text-2xl font-medium">
             Price <strong>&dollar; {{ product.price }}</strong>
           </p>
